@@ -1,0 +1,42 @@
+Travis Robinson
+CS 261
+Programming Assignment 2
+Part 2
+1) O(10					2) O(N)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3) The way to have O(N2) time complexity is to have the program alternate pushes and pops. If it starts at capacity 8 and size 4, then we push, putting us at capacity 8 and size 4. After that if we pop the array is at half capacity (capacity 8, size 4) and so it's all moved to a new array. Then we push and we exceed capacity and it needs to be moved to a new array again. Just continue doing this and for all N operations, N elements need to be moved.
+
+This can be avoided by changing the shrinking by policy to shrink the array to size 8 whenever it is emptied. Or by shrinking it when the size of the array is at one-quarter of capacity.
