@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Pathing With the Facebook Graph API</title>
+ </head>
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #000000;
+}
+
+li a:not(.unstyled){
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color:  #C34500;
+}
+
+.unstyled {
+    list-style-type: disc;
+    font-size: x-large;
+    margin-left: 25%;
+    background-color: white;
+    }
+    
+</style>
+<ul>
+  <li><a href="http://web.engr.oregonstate.edu/~robitrav/GettingStarted.html">Getting Started</a></li>
+  <li><a href="http://web.engr.oregonstate.edu/~robitrav/Pathing.html">Pathing with the Graph API</a></li>
+  <li><a class="active" href="http://web.engr.oregonstate.edu/~robitrav/Params.html">Params</a></li>
+  <li><a href="http://web.engr.oregonstate.edu/~robitrav/Method.html">Method</a></li>
+</ul>
+    
+<h1><center>How To for Facebooks Graph API</center></h1>
+<h2><center>Section 3</center></h2>
+<h3><center>Params With the Facebook Graph API</center></h3>
+<body>
+
+
+    
+    <p class="seventy-five-percent">
+        Remember the 'fields' parameter I told you to ignore in <a href="http://web.engr.oregonstate.edu/~robitrav/Pathing.html">the pathing section</a>? Now you're going to go ahead and stop ignoring it. Like edges, the inputs for this parameter will be dependent on the node. Unlike the edges, however, this field won't affect the object you're looking at. For example, if you follow the albums edge from the user node, you're now in the albums node. With the params parameter though, it only lets you look at information about the node you're in. For example, if you're in a user node, you can look at the users birthday, first name and last name.
+    </p>
+        
+    <p class="seventy-five-percent">
+        The params parameter accepts an object for it's value, and taking the form {fields: 'name'}, as an example. Multiple fields can be requested by inserting commas into the field, such as {fields: 'name,  declined_count, timezone'}, which would return the name, declined count and timezone for an event (assuming you're in an event node).
+    </p>
+
+    <p class="seventy-five-percent">
+        Once again using the FB.api function:
+    </p>
+    
+    <pre class = "alignment"><code>
+function eventInfo() {
+    FB.login(function(){
+        FB.api('/886619278065757', {fields: 'name,declined_count,timezone'},                    function(response) {
+                if (response && !response.error)
+                {
+                    console.log(response);
+                    var header = document.createElement("h4");
+                    header.textContent = "Name, Time Zone, Count of Declined Invites";
+                    document.body.appendChild(header);
+            
+                    var list = document.createElement("ul");
+                    list.setAttribute("id","list");
+                    document.body.appendChild(list);
+        
+                    var name = document.createElement("li");
+                    name.textContent = response.name;
+                    document.getElementById("list").appendChild(name);
+            
+                    var timezone = document.createElement("li");
+                    timezone.textContent = response.timezone;
+                    document.getElementById("list").appendChild(timezone);
+            
+                    var declined = document.createElement("li");
+                    declined.textContent = response.declined_count;
+                    document.getElementById("list").appendChild(declined);         
+                }
+                else
+                {
+                    console.log("No response or response error");
+                }
+
+        });        
+    }, {scope: 'publish_actions'});;
+}
+    </code></pre>
+
+    <p class="seventy-five-percent">
+        This code, pointing at event number 886619278065757 (which is a charity event a friend of mine hosted a few years ago), produces the name, time zone, and the number of people who declined to attend:
+    </p>
+    <ul class="unstyled">
+    <li class="unstyled">Benefit Concert</li>
+    <li class="unstyled">America/Denver</li>
+    <li class="unstyled">182</li>
+    </ul>
+    
+    <p class="seventy-five-percent">
+        We see that it looks much like the one from our movie list example; in this case we give it a path, in this case to an event through the use of an event number. Looking at the callback function, we see that it creates a list containing the name, time zone and the number of declined users for this event. These are not normally returned (with the exception of name, which, along with ID, is one of the default return values), but can be requested through the use of the params (where it says fields) parameter. Other potential params are things like page access tokens, which would then allow the API call to make changes to a particular Facebook page. These are not exampled here as they require a page owner to grant access, which we don't have for the current project.
+    </p>
+    
+    <script>
+        var par = document.getElementsByClassName("seventy-five-percent");
+        for(var i = 0; i<par.length;i++)
+            {
+                par[i].style.marginLeft = "25%";
+                par[i].style.width = "50%";
+                par[i].style.fontSize = "x-large";
+            }
+        var left = document.getElementsByClassName("alignment");
+        for(var i = 0; i<left.length;i++)
+            {
+                left[i].style.marginLeft = "25%";
+            }
+
+        
+    </script>
+</body>
+</html>

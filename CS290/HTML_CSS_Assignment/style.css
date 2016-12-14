@@ -1,0 +1,27 @@
+.outer-content
+{
+    background-color: pink;
+    width: 75%;
+    margin-top: 20px;
+    border:solid 1px;
+    border-color: pink;
+}
+
+.inner-content
+{
+    background-color: blue;
+    width: 75%;
+    position: relative;
+    left: 12.5%;
+    text-align: center;
+}
+
+.notBold
+{
+    font-weight: normal;
+}
+
+table, th, td
+{
+    border: 1px solid black;
+}

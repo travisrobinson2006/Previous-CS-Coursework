@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Pathing With the Facebook Graph API</title>
+ </head>
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #000000;
+}
+
+li a:not(.unstyled){
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color:  #C34500;
+}
+
+.unstyled {
+    list-style-type: disc;
+    font-size: x-large;
+    margin-left: 25%;
+    background-color: white;
+    }
+    
+</style>
+<ul>
+  <li><a href="http://web.engr.oregonstate.edu/~robitrav/GettingStarted.html">Getting Started</a></li>
+  <li><a href="http://web.engr.oregonstate.edu/~robitrav/Pathing.html">Pathing with the Graph API</a></li>
+  <li><a href="http://web.engr.oregonstate.edu/~robitrav/Params.html">Params</a></li>
+  <li><a class="active" href="http://web.engr.oregonstate.edu/~robitrav/Method.html">Method</a></li>
+</ul>
+    
+<h1><center>How To for Facebooks Graph API</center></h1>
+<h2><center>Section 4</center></h2>
+<h3><center>Method Parameter With the Facebook Graph API</center></h3>
+<body>
+
+
+    
+    <p class="seventy-five-percent">
+        The method parameter for the function determines what a user will be doing with their request. There are three potential options: GET, POST, and DELETE. The GET method  is the method used for retrieving information; it's also the default, so is the one used in prior examples. It allows us to read a persons birthday, or their list of friends, or check on the list of admins for a group.
+    </p>
+
+    <p class="seventy-five-percent">
+        The POST method is what allows us to make Facebook posts. These can be creating a new photo album, putting a photo in an existing album, posting a video, or making a post to a persons wall.
+    </p>
+
+    <p class="seventy-five-percent">
+        The DELETE method, like its name implies, lets us delete information from Facebook, such as wall posts or photos.
+    </p>
+    
+    <p class="seventy-five-percent">
+        All these methods, of course, require certain permissions. For example, you can't use the API to post to a random persons wall, and you can't delete users from an app (unless it's your own app, in which case you would have permission).
+    </p>
+    
+    <p class="seventy-five-percent">
+        Looking at a code example to make a post to a news feed:
+    </p>
+    
+    <pre class = "alignment"><code>
+function print() {
+    FB.login(function(){
+        FB.api('/me/feed', 'post', {message: 'CS290 is great!'});
+        }, {scope: 'publish_actions'});
+}
+    </code></pre>
+
+    <p class="seventy-five-percent">
+        This code will print to my wall the message "CS290 is really great!" (PS, it is)
+    </p>
+    
+    <p class="seventy-five-percent">
+        Here we use all of the tools or parameters that we've discussed so far. We follow the path to the users feed, which in this case will be the path to my feed, 'me/feed', then we pass it the 'post' parameter so that it knows we're posting information instead of retrieving, and then we come to the 'params' parameter, which in this case is an object containing a message, 'CS290 is really great!'
+    </p>
+
+    <center><img src="OutPutPost.png" alt="Post prints to Facebook wall"></center> 
+    
+    
+    <p class="seventy-five-percent">
+        Please note this not a comprehensive guide to using the Facebook Graph API. There are a TON of roots,nodes, and params that will all do different things depending on which method is being used. What this How To should do though is give a good foundation. It shows how to make calls using the different API parameters and gives examples of some of the things that can be done with them; it should really be used in conjuntion with the documentation for your own projects as an example of how to get started and how to build from there.
+    </p>
+    
+    <p class="seventy-five-percent">
+        Thanks for reading!
+    </p>
+    
+    
+    <script>
+        var par = document.getElementsByClassName("seventy-five-percent");
+        for(var i = 0; i<par.length;i++)
+            {
+                par[i].style.marginLeft = "25%";
+                par[i].style.width = "50%";
+                par[i].style.fontSize = "x-large";
+            }
+        var left = document.getElementsByClassName("alignment");
+        for(var i = 0; i<left.length;i++)
+            {
+                left[i].style.marginLeft = "25%";
+            }
+    </script>
+</body>
+</html>

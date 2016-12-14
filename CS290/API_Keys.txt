@@ -1,0 +1,1 @@
+OpenWeather = dd98d581d382eeb25fd2a9abb9ceebf7

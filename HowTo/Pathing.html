@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Pathing With the Facebook Graph API</title>
+ </head>
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #000000;
+}
+
+li a:not(.unstyled){
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color:  #C34500;
+}
+
+.unstyled {
+    list-style-type: disc;
+    font-size: x-large;
+    margin-left: 25%;
+    background-color: white;
+    }
+    
+</style>
+<ul>
+  <li><a href="http://web.engr.oregonstate.edu/~robitrav/GettingStarted.html">Getting Started</a></li>
+  <li><a class="active" href="http://web.engr.oregonstate.edu/~robitrav/Pathing.html">Pathing with the Graph API</a></li>
+  <li><a href="http://web.engr.oregonstate.edu/~robitrav/Params.html">Params</a></li>
+  <li><a href="http://web.engr.oregonstate.edu/~robitrav/Method.html">Method</a></li>
+</ul>
+    
+<h1><center>How To for Facebooks Graph API</center></h1>
+<h2><center>Section 2</center></h2>
+<h3><center>Pathing With the Facebook Graph API</center></h3>
+<body>
+
+
+    
+    <p class="seventy-five-percent">
+        Let's start with the first parameter: the path. Remember how this is a graph? Well the 'path' in this case is the route we take to access particular information, starting from a particular root or node. The list of available nodes is here <a href="https://developers.facebook.com/docs/graph-api/reference">https://developers.facebook.com/docs/graph-api/reference</a> and it's pretty long. For our example, we'll be using the 'User' root, which is the root for a person; we're also going to be using a particular instance of the user root, the '/me' instance, which refers to the user currently logged in and making the calls. Other options exist, such as using a user ID, but for privacy reasons they need to have the app installed or certain permissions need to be available to the app writer from Facebook; this prevents random people from being able to access the information of anybody they want using the Graph API.
+    </p>
+        
+    <p class="seventy-five-percent">
+        From the root node, we can then continue along our path following edges until we reach the desired destination. For the edges available to the user root node, go to <a href="https://developers.facebook.com/docs/graph-api/reference/user">https://developers.facebook.com/docs/graph-api/reference/user</a>. This is pretty typical documentation for the Graph API; that is, if you look at any of the other node types, the documentation for them will look very similiar. For now, you should skip over the 'fields' section, we'll be coming back to that later. Edges are the edges along the graph, and to access them you follow the format of 'node/edge,' and can be used to get access to things like a persons photo albms.
+    </p>
+
+    <p class="seventy-five-percent">
+        Lets now look at the following code example:
+    </p>
+    
+    <pre class = "alignment"><code>
+function movieList() {
+  FB.login(function(){
+      
+    FB.api(
+    "/me/movies",
+    function (response) {
+      if (response && !response.error) {
+        /* handle the result */
+          console.log(response);
+          //console.log(response.data[0].name);
+          var movieListTitle = document.createElement("h4");
+          movieListTitle.textContent = "Movie List";
+          document.body.appendChild(movieListTitle);
+          var movieList = document.createElement("ul");
+          movieList.setAttribute("id","movieList");
+          document.body.appendChild(movieList);
+          for (var i = 0; i &lt response.data.length;i++)
+              {
+                  console.log(response.data[i].name);
+                  var listItem = document.createElement("li");
+                  listItem.textContent = response.data[i].name;
+                  document.getElementById("movieList").appendChild(listItem);
+              }
+      }
+        else
+            {console.log("No response");}
+    }
+);     
+  }, {scope: 'publish_actions'});
+}
+    </code></pre>
+         
+    <p class="seventy-five-percent">
+        Since this code has the '/me' path, it looks at the user currently logged on, so for me it produces the following output (and yes, there are two Serenity likes in my movie list, though I'm not sure why I liked twice):
+    </p>
+    
+    <ul class="unstyled">
+        <li class="unstyled">Serenity</li>
+        <li class="unstyled">Serenity</li>
+        <li class="unstyled">Shrek</li>
+        <li class="unstyled">Tangled</li>
+        <li class="unstyled">Up</li>
+    </ul>
+    
+    <p class="seventy-five-percent">
+        When the movieList() function is called, the first thing that happens is the FB.login() function is called. This function makes sure that the user is logged in, and then calls the function within its parameters, which is FB.api(). Notice that the first parameter in this case for FB.api() is “/me/movies”. This is a path from 'me' (a user root node) along the edge 'movies'. This returns 'response' which is sent to the callback function; for this particular edge, response will be an array where the elements are objects containing the name of the movie, the date that I liked it, and the Facebook ID for the movie that has been 'liked.'
+    </p>
+    
+    <p class="seventy-five-percent">
+        I want to draw your attention to the line <code style="font-size: 13px">{scope: 'publish_actions'}</code>. This piece of code, while not a part of the Graph API, is still necessary as it grants permissions for accessing the graph API
+    </p>
+    
+    <p class="seventy-five-percent">
+        We're not going to go into too much detail here on callback functions; they're what you use to process the data returned by the Facebook API, and what exactly you have them do will be up to what you. All I can really say is that, while in this case, it's written to act on an input array, not all paths return arrays; some return strings, some return objects, and in the case of following the edge to a users profile picture, you would get a 302 redirect to their photo.
+    </p>
+    
+    <p class="seventy-five-percent">
+        It should be pointed out that while I said above there are four different parameters, only two were used. That is because the other two are either optional parameters (params) or have a default value (method, which has the default of 'GET') that we wished to use in this case.
+    </p>
+
+    <p class="seventy-five-percent">
+        This is just an example of the path parameter. For a full list of possible roots, refer to <a href="https://developers.facebook.com/docs/graph-api/reference">https://developers.facebook.com/docs/graph-api/reference</a>. For the possible edges that can be followed starting at that root, select the root node you would like to start from and continue from there.
+    </p>
+
+    
+    
+    
+    
+    
+    <script>
+        var par = document.getElementsByClassName("seventy-five-percent");
+        for(var i = 0; i<par.length;i++)
+            {
+                par[i].style.marginLeft = "25%";
+                par[i].style.width = "50%";
+                par[i].style.fontSize = "x-large";
+            }
+        var left = document.getElementsByClassName("alignment");
+        for(var i = 0; i<left.length;i++)
+            {
+                left[i].style.marginLeft = "25%";
+            }
+
+        
+    </script>
+</body>
+</html>

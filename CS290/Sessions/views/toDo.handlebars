@@ -1,0 +1,22 @@
+<h1> {{name}} you have {{toDoCount}} items on your list</h1>
+<form method="post">
+    <input type="text" name="name" id="toDoName">
+    <input type="text" name="temp" id="toDoTemp">
+    <input type="text" name="city" id="toDoCity">
+    <input type="submit" name="Add Item" value="Add Item">
+</form>
+{{#if toDo}}
+<ul>
+    {{#each toDo}}
+    <li>
+        <h3>{{this.name}}</h3>
+        <h3>{{this.temp}}</h3>
+        <h3>{{this.city}}</h3>
+        <h3>{{this.color}}</h3>
+        <form method="post">
+            <input type="hidden" name="id" value="{{this.id}}">
+        </form>
+    </li>
+    {{/each}}
+</ul>
+{{/if}}

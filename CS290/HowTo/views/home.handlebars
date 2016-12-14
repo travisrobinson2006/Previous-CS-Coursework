@@ -1,0 +1,43 @@
+<h1><center>How To for Facebooks Graph API</center></h1>
+<h2><center>Section 1</center></h2>
+<h3><center>Getting Started</center></h3>
+<body>
+    <p class="seventy-five-percent">So, getting things set is by far the hardest part of this whole process.  There are a lot of things that needed to be done, and it took me most of a day just trying to get it all sorted out. So you, dear reader, get to benefit from wisdom as we go through this first step.</p>
+    
+    <p class="seventy-five-percent">So the first thing that needs to be is to become a Facebook developer. This is required in order for you to receive an API key, to tell Facebook where you'll be connecting from, and to access the Facebook <a href="https://developers.facebook.com/docs/graph-api">Graph API Documentation</a> To become a Facebook developer, go to <a href="https://developers.facebook.com/">https://developers.facebook.com</a> where you will be given a serious of instructions and validation tests to ensure you're a person.</p>
+
+    
+    <p class="seventy-five-percent">
+        From there, you want to go to "My Apps" located at the top of the screen, and "Add a New App". This will bring up a pop-up window giving various selections of new app types, ranging from Android to Website. We want to use Website. You'll be asked to name the app and to select the category of app; I named mine TestApp and the category is education.
+    </p>
+    
+    <p class="seventy-five-percent">
+        At this point, you should find yourself at the app's dashboard. Here you'll the App ID (this is your API key, though nowhere in the documentation does it tell you that) API Version, and App Secret. For our purposes, the later two are unnecessary, though they will be necessary for actual app developement.
+    </p>
+    
+    <p class="seventy-five-percent">
+        The next important step is to go to Settings, on the left hand side. Here you want to enter the site URL that you'll be using the Facebook API from. If you don't put in the URL, or if you don't put in the correct one, you won't be able to access the API functions, so this is important that you have it.
+    </p>
+        
+    <p class="seventy-five-percent">
+        Well, that's it for getting set up! Now let's get started on actually learning the API.
+    </p>
+        
+    <script>
+        var par = document.getElementsByClassName("seventy-five-percent");
+        for(var i = 0; i<par.length;i++)
+            {
+                par[i].style.marginLeft = "25%";
+                par[i].style.width = "50%";
+                par[i].style.fontSize = "x-large";
+            }
+        var buttons = document.getElementsByClassName("buttons");
+        for(var i = 0; i<buttons.length;i++)
+            {
+                buttons[i].style.border = "1px solid #000";
+                buttons[i].style.display = "inline-block";
+                buttons[i].style.borderRadius = "50px";
+                buttons[i].style.backgoundColor = "yellow";
+            }
+    </script>
+</body>
