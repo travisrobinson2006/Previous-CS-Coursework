@@ -1,0 +1,351 @@
+For the input array [1,5,10,25,50] with value A of 2
+changeslow:
+[2,0,0,0,0]
+2
+changegreedy:
+[2,0,0,0,0]
+2
+changedp:
+[2,0,0,0,0]
+2
+For the input array [1,5,10,25,50] with value A of 4
+changeslow:
+[4,0,0,0,0]
+4
+changegreedy:
+[4,0,0,0,0]
+4
+changedp:
+[4,0,0,0,0]
+4
+For the input array [1,5,10,25,50] with value A of 6
+changeslow:
+[1,1,0,0,0]
+2
+changegreedy:
+[1,1,0,0,0]
+2
+changedp:
+[1,1,0,0,0]
+2
+For the input array [1,5,10,25,50] with value A of 8
+changeslow:
+[3,1,0,0,0]
+4
+changegreedy:
+[3,1,0,0,0]
+4
+changedp:
+[3,1,0,0,0]
+4
+For the input array [1,5,10,25,50] with value A of 10
+changeslow:
+[0,0,1,0,0]
+1
+changegreedy:
+[0,0,1,0,0]
+1
+changedp:
+[0,0,1,0,0]
+1
+For the input array [1,5,10,25,50] with value A of 12
+changeslow:
+[2,0,1,0,0]
+3
+changegreedy:
+[2,0,1,0,0]
+3
+changedp:
+[2,0,1,0,0]
+3
+For the input array [1,5,10,25,50] with value A of 14
+changeslow:
+[4,0,1,0,0]
+5
+changegreedy:
+[4,0,1,0,0]
+5
+changedp:
+[4,0,1,0,0]
+5
+For the input array [1,5,10,25,50] with value A of 16
+changeslow:
+[1,1,1,0,0]
+3
+changegreedy:
+[1,1,1,0,0]
+3
+changedp:
+[1,1,1,0,0]
+3
+For the input array [1,5,10,25,50] with value A of 18
+changeslow:
+[3,1,1,0,0]
+5
+changegreedy:
+[3,1,1,0,0]
+5
+changedp:
+[3,1,1,0,0]
+5
+For the input array [1,5,10,25,50] with value A of 20
+changeslow:
+[0,0,2,0,0]
+2
+changegreedy:
+[0,0,2,0,0]
+2
+changedp:
+[0,0,2,0,0]
+2
+For the input array [1,5,10,25,50] with value A of 22
+changeslow:
+[2,0,2,0,0]
+4
+changegreedy:
+[2,0,2,0,0]
+4
+changedp:
+[2,0,2,0,0]
+4
+For the input array [1,5,10,25,50] with value A of 24
+changeslow:
+[4,0,2,0,0]
+6
+changegreedy:
+[4,0,2,0,0]
+6
+changedp:
+[4,0,2,0,0]
+6
+For the input array [1,5,10,25,50] with value A of 26
+changeslow:
+[1,0,0,1,0]
+2
+changegreedy:
+[1,0,0,1,0]
+2
+changedp:
+[1,0,0,1,0]
+2
+For the input array [1,5,10,25,50] with value A of 28
+changeslow:
+[3,0,0,1,0]
+4
+changegreedy:
+[3,0,0,1,0]
+4
+changedp:
+[3,0,0,1,0]
+4
+For the input array [1,5,10,25,50] with value A of 30
+changeslow:
+[0,1,0,1,0]
+2
+changegreedy:
+[0,1,0,1,0]
+2
+changedp:
+[0,1,0,1,0]
+2
+For the input array [1,5,10,25,50] with value A of 32
+changeslow:
+[2,1,0,1,0]
+4
+changegreedy:
+[2,1,0,1,0]
+4
+changedp:
+[2,1,0,1,0]
+4
+For the input array [1,5,10,25,50] with value A of 34
+changeslow:
+[4,1,0,1,0]
+6
+changegreedy:
+[4,1,0,1,0]
+6
+changedp:
+[4,1,0,1,0]
+6
+For the input array [1,5,10,25,50] with value A of 36
+changeslow:
+[1,0,1,1,0]
+3
+changegreedy:
+[1,0,1,1,0]
+3
+changedp:
+[1,0,1,1,0]
+3
+For the input array [1,5,10,25,50] with value A of 38
+changeslow:
+[3,0,1,1,0]
+5
+changegreedy:
+[3,0,1,1,0]
+5
+changedp:
+[3,0,1,1,0]
+5
+For the input array [1,5,10,25,50] with value A of 40
+changeslow:
+[0,1,1,1,0]
+3
+changegreedy:
+[0,1,1,1,0]
+3
+changedp:
+[0,1,1,1,0]
+3
+For the input array [1,5,10,25,50] with value A of 42
+changeslow:
+[2,1,1,1,0]
+5
+changegreedy:
+[2,1,1,1,0]
+5
+changedp:
+[2,1,1,1,0]
+5
+For the input array [1,5,10,25,50] with value A of 44
+changeslow:
+[4,1,1,1,0]
+7
+changegreedy:
+[4,1,1,1,0]
+7
+changedp:
+[4,1,1,1,0]
+7
+For the input array [1,5,10,25,50] with value A of 46
+changeslow:
+[1,0,2,1,0]
+4
+changegreedy:
+[1,0,2,1,0]
+4
+changedp:
+[1,0,2,1,0]
+4
+For the input array [1,5,10,25,50] with value A of 48
+changeslow:
+[3,0,2,1,0]
+6
+changegreedy:
+[3,0,2,1,0]
+6
+changedp:
+[3,0,2,1,0]
+6
+For the input array [1,5,10,25,50] with value A of 50
+changeslow:
+[0,0,0,0,1]
+1
+changegreedy:
+[0,0,0,0,1]
+1
+changedp:
+[0,0,0,0,1]
+1
+For the input array [1,5,10,25,50] with value A of 52
+changeslow:
+[2,0,0,0,1]
+3
+changegreedy:
+[2,0,0,0,1]
+3
+changedp:
+[2,0,0,0,1]
+3
+For the input array [1,5,10,25,50] with value A of 54
+changeslow:
+[4,0,0,0,1]
+5
+changegreedy:
+[4,0,0,0,1]
+5
+changedp:
+[4,0,0,0,1]
+5
+For the input array [1,5,10,25,50] with value A of 56
+changeslow:
+[1,1,0,0,1]
+3
+changegreedy:
+[1,1,0,0,1]
+3
+changedp:
+[1,1,0,0,1]
+3
+For the input array [1,5,10,25,50] with value A of 58
+changeslow:
+[3,1,0,0,1]
+5
+changegreedy:
+[3,1,0,0,1]
+5
+changedp:
+[3,1,0,0,1]
+5
+For the input array [1,5,10,25,50] with value A of 60
+changeslow:
+[0,0,1,0,1]
+2
+changegreedy:
+[0,0,1,0,1]
+2
+changedp:
+[0,0,1,0,1]
+2
+For the input array [1,5,10,25,50] with value A of 62
+changeslow:
+[2,0,1,0,1]
+4
+changegreedy:
+[2,0,1,0,1]
+4
+changedp:
+[2,0,1,0,1]
+4
+For the input array [1,5,10,25,50] with value A of 64
+changeslow:
+[4,0,1,0,1]
+6
+changegreedy:
+[4,0,1,0,1]
+6
+changedp:
+[4,0,1,0,1]
+6
+For the input array [1,5,10,25,50] with value A of 66
+changeslow:
+[1,1,1,0,1]
+4
+changegreedy:
+[1,1,1,0,1]
+4
+changedp:
+[1,1,1,0,1]
+4
+For the input array [1,5,10,25,50] with value A of 68
+changeslow:
+[3,1,1,0,1]
+6
+changegreedy:
+[3,1,1,0,1]
+6
+changedp:
+[3,1,1,0,1]
+6
+For the input array [1,5,10,25,50] with value A of 70
+changeslow:
+[0,0,2,0,1]
+3
+changegreedy:
+[0,0,2,0,1]
+3
+changedp:
+[0,0,2,0,1]
+3
+For the input array [1,5,10,25,50] with value A of 72

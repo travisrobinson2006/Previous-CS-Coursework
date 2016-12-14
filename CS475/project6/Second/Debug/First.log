@@ -1,0 +1,14 @@
+﻿Build started 5/23/2016 2:22:03 PM.
+     1>Project "C:\Users\Travis\Desktop\cs475\project6\First\First.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /openmp /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt first.cpp
+         first.cpp
+     1>c:\users\travis\desktop\cs475\project6\first\first.cpp(227): warning C4700: uninitialized local variable 'pause' used
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Travis\Desktop\cs475\project6\First\Debug\First.exe" /INCREMENTAL /NOLOGO OpenCL32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Travis\Desktop\cs475\project6\First\Debug\First.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Travis\Desktop\cs475\project6\First\Debug\First.lib" /MACHINE:X86 Debug\first.obj
+         First.vcxproj -> C:\Users\Travis\Desktop\cs475\project6\First\Debug\First.exe
+     1>Done Building Project "C:\Users\Travis\Desktop\cs475\project6\First\First.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.94

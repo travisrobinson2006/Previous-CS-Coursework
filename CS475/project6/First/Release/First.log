@@ -1,0 +1,32 @@
+﻿Build started 5/28/2016 6:27:28 PM.
+     1>Project "C:\Users\Travis\Desktop\cs475\project6\First\First.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt first.cpp
+         first.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Travis\Desktop\cs475\project6\First\Release\First.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Travis\Desktop\cs475\project6\First\Release\First.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Travis\Desktop\cs475\project6\First\Release\First.lib" /MACHINE:X86 /SAFESEH Release\first.obj
+     1>first.obj : error LNK2001: unresolved external symbol _clCreateProgramWithSource@20
+     1>first.obj : error LNK2001: unresolved external symbol _clCreateKernel@12
+     1>first.obj : error LNK2001: unresolved external symbol _clCreateCommandQueue@20
+     1>first.obj : error LNK2001: unresolved external symbol _clGetProgramBuildInfo@24
+     1>first.obj : error LNK2001: unresolved external symbol _clSetKernelArg@16
+     1>first.obj : error LNK2001: unresolved external symbol _clReleaseCommandQueue@4
+     1>first.obj : error LNK2001: unresolved external symbol _clGetPlatformIDs@12
+     1>first.obj : error LNK2001: unresolved external symbol _clReleaseKernel@4
+     1>first.obj : error LNK2001: unresolved external symbol _clGetDeviceIDs@24
+     1>first.obj : error LNK2001: unresolved external symbol _clReleaseProgram@4
+     1>first.obj : error LNK2001: unresolved external symbol _clBuildProgram@24
+     1>first.obj : error LNK2001: unresolved external symbol _clEnqueueWriteBuffer@36
+     1>first.obj : error LNK2001: unresolved external symbol _clCreateContext@24
+     1>first.obj : error LNK2001: unresolved external symbol _clCreateBuffer@24
+     1>first.obj : error LNK2001: unresolved external symbol _clEnqueueNDRangeKernel@36
+     1>first.obj : error LNK2001: unresolved external symbol _clEnqueueReadBuffer@36
+     1>first.obj : error LNK2001: unresolved external symbol _clReleaseMemObject@4
+     1>first.obj : error LNK2001: unresolved external symbol _clEnqueueMarker@8
+     1>first.obj : error LNK2001: unresolved external symbol _clEnqueueWaitForEvents@12
+     1>C:\Users\Travis\Desktop\cs475\project6\First\Release\First.exe : fatal error LNK1120: 19 unresolved externals
+     1>Done Building Project "C:\Users\Travis\Desktop\cs475\project6\First\First.vcxproj" (Rebuild target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.26

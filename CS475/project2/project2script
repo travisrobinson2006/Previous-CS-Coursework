@@ -1,0 +1,10 @@
+#!/bin/sh
+
+#number of threads:
+for varT in 1 2 4 6 8
+do
+        echo NUMT = $varT
+        g++ -DNUMT=$varT project2.cpp -o project2 -lm -fopenmp
+        ./project2
+done
+

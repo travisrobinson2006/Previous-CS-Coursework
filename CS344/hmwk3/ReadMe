@@ -1,0 +1,4 @@
+README********************************************
+To compile program input the following at the BASH prompt:
+gcc smallsh.c -o smallsh
+END README****************************************

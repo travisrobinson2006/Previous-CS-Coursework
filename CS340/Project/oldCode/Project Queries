@@ -1,0 +1,51 @@
+Travis Robinson
+Project Queries
+CS340
+
+Create New Character:
+
+"INSERT INTO CharacterData (FirstName,LastName,StoryID,OriginStoryID) VALUES (?,?,?,?)"
+"INSERT INTO CharacterIs (CharacterID,ArchetypeID) VALUES ($newID,?)"
+
+New Character Archetype:
+
+"INSERT INTO CharacterArchetype (Type) VALUES (?)"
+
+New Genre:
+"INSERT INTO Genre (Type) VALUES (?)"
+
+New Origin Story:
+"INSERT INTO OriginStory (Type) VALUES (?)"
+
+New Story/Universe:
+"INSERT INTO Story (Title,GenreID) VALUES (?,?)"
+
+List by Archetype:
+"SELECT CharacterData.FirstName, CharacterData.LastName, CharacterArchetype.Type, OriginStory.Type, Story.Title
+		FROM CharacterData 
+		INNER JOIN OriginStory ON OriginStory.ID = CharacterData.OriginStoryID 
+		INNER JOIN Story ON Story.ID = CharacterData.StoryID 
+		INNER JOIN CharacterIs ON CharacterIs.CharacterID=CharacterData.ID
+		INNER JOIN CharacterArchetype ON CharacterIs.ArchetypeID=CharacterArchetype.ID
+		WHERE CharacterArchetype.ID=?
+		"
+
+Search by Character Name:
+
+When Last Name Not Provided:
+"SELECT CharacterData.FirstName, CharacterData.LastName, CharacterArchetype.Type, OriginStory.Type, Story.Title
+		FROM CharacterData 
+		INNER JOIN OriginStory ON OriginStory.ID = CharacterData.OriginStoryID 
+		INNER JOIN Story ON Story.ID = CharacterData.StoryID 
+		INNER JOIN CharacterIs ON CharacterIs.CharacterID=CharacterData.ID
+		INNER JOIN CharacterArchetype ON CharacterIs.ArchetypeID=CharacterArchetype.ID
+		WHERE CharacterData.FirstName = ?"
+		
+When Last Name Provided:
+"SELECT CharacterData.FirstName, CharacterData.LastName, CharacterArchetype.Type, OriginStory.Type, Story.Title
+		FROM CharacterData 
+		INNER JOIN OriginStory ON OriginStory.ID = CharacterData.OriginStoryID 
+		INNER JOIN Story ON Story.ID = CharacterData.StoryID 
+		INNER JOIN CharacterIs ON CharacterIs.CharacterID=CharacterData.ID
+		INNER JOIN CharacterArchetype ON CharacterIs.ArchetypeID=CharacterArchetype.ID
+		WHERE CharacterData.FirstName = ? AND CharacterData.LastName = ?"

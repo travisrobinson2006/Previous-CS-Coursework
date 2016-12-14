@@ -1,0 +1,32 @@
+﻿Build started 5/28/2016 4:06:25 PM.
+     1>Project "C:\Users\Travis\Desktop\cs475\project6\First\First.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /openmp /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /Gd /TP /errorReport:prompt first.cpp
+         first.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Travis\Desktop\cs475\project6\First\x64\Debug\First.exe" /INCREMENTAL /NOLOGO OpenCL32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Travis\Desktop\cs475\project6\First\x64\Debug\First.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Travis\Desktop\cs475\project6\First\x64\Debug\First.lib" /MACHINE:X64 x64\Debug\first.obj
+     1>first.obj : error LNK2019: unresolved external symbol clGetPlatformIDs referenced in function main
+     1>first.obj : error LNK2019: unresolved external symbol clGetDeviceIDs referenced in function main
+     1>first.obj : error LNK2019: unresolved external symbol clCreateContext referenced in function main
+     1>first.obj : error LNK2019: unresolved external symbol clCreateCommandQueue referenced in function main
+     1>first.obj : error LNK2019: unresolved external symbol clReleaseCommandQueue referenced in function main
+     1>first.obj : error LNK2019: unresolved external symbol clCreateBuffer referenced in function main
+     1>first.obj : error LNK2019: unresolved external symbol clReleaseMemObject referenced in function main
+     1>first.obj : error LNK2019: unresolved external symbol clCreateProgramWithSource referenced in function main
+     1>first.obj : error LNK2019: unresolved external symbol clReleaseProgram referenced in function main
+     1>first.obj : error LNK2019: unresolved external symbol clBuildProgram referenced in function main
+     1>first.obj : error LNK2019: unresolved external symbol clGetProgramBuildInfo referenced in function main
+     1>first.obj : error LNK2019: unresolved external symbol clCreateKernel referenced in function main
+     1>first.obj : error LNK2019: unresolved external symbol clReleaseKernel referenced in function main
+     1>first.obj : error LNK2019: unresolved external symbol clSetKernelArg referenced in function main
+     1>first.obj : error LNK2019: unresolved external symbol clEnqueueReadBuffer referenced in function main
+     1>first.obj : error LNK2019: unresolved external symbol clEnqueueWriteBuffer referenced in function main
+     1>first.obj : error LNK2019: unresolved external symbol clEnqueueNDRangeKernel referenced in function main
+     1>first.obj : error LNK2019: unresolved external symbol clEnqueueMarker referenced in function "void __cdecl Wait(struct _cl_command_queue *)" (?Wait@@YAXPEAU_cl_command_queue@@@Z)
+     1>first.obj : error LNK2019: unresolved external symbol clEnqueueWaitForEvents referenced in function "void __cdecl Wait(struct _cl_command_queue *)" (?Wait@@YAXPEAU_cl_command_queue@@@Z)
+     1>C:\Users\Travis\Desktop\cs475\project6\First\x64\Debug\First.exe : fatal error LNK1120: 19 unresolved externals
+     1>Done Building Project "C:\Users\Travis\Desktop\cs475\project6\First\First.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:02.73

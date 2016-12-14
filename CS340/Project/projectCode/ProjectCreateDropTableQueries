@@ -1,0 +1,89 @@
+DROP TABLE `CharacterIs`;
+DROP TABLE `CharacterArchetype`;
+DROP TABLE `CharacterData`;
+DROP TABLE `Story`;
+DROP TABLE `Genre`;
+DROP TABLE `OriginStory`;
+DROP TABLE `StoryAttribute`;
+DROP TABLE `CharacterAttribute`;
+
+CREATE TABLE Genre
+(
+	ID int(11) AUTO_INCREMENT NOT NULL,
+	Type varchar(255) NOT NULL,
+	PRIMARY KEY (ID),
+	UNIQUE (Type)
+);
+
+CREATE TABLE Story
+(
+	ID int(11) AUTO_INCREMENT NOT NULL,
+	Title varchar(255) NOT NULL,
+	GenreID int(11) NOT NULL,
+	PRIMARY KEY (ID),
+	FOREIGN KEY (genreID) REFERENCES Genre(ID) ON UPDATE CASCADE,
+	UNIQUE (Title)
+);
+
+CREATE TABLE OriginStory
+(
+	ID int(11) AUTO_INCREMENT NOT NULL,
+	Type varchar(255) NOT NULL,
+	PRIMARY KEY(ID)
+);
+
+CREATE TABLE CharacterArchetype
+(
+	ID int(11) AUTO_INCREMENT NOT NULL,
+	Type varchar(255) NOT NULL,
+	PRIMARY KEY(ID),
+	UNIQUE (Type)
+);
+
+CREATE TABLE CharacterData
+(
+	ID int(11) AUTO_INCREMENT NOT NULL,
+	FirstName varchar(255) NOT NULL,
+	LastName varchar(255),
+	StoryID int(11) NOT NULL,
+	OriginStoryID int(11) NOT NULL,
+	PRIMARY KEY(ID),
+	FOREIGN KEY (StoryID) REFERENCES Story(ID) ON UPDATE CASCADE,
+	FOREIGN KEY (OriginStoryID) REFERENCES OriginStory(ID) ON UPDATE CASCADE
+);
+
+CREATE TABLE CharacterIs
+(
+	CharacterID int(11) NOT NULL,
+	ArchetypeID int(11) NOT NULL,
+	PRIMARY KEY(CharacterID,ArchetypeID),
+	FOREIGN KEY(CharacterID) REFERENCES CharacterData(ID) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY(ArchetypeID) REFERENCES CharacterArchetype(ID) ON UPDATE CASCADE
+);
+
+-- The following queries are used to populate tables for the purpose of drop-down menus on
+-- project site, since there were some menus that needed to know the column name.
+
+CREATE TABLE StoryAttribute
+(
+	ID int(11) AUTO_INCREMENT NOT NULL,
+	StoryAttribute varchar(255) NOT NULL,
+	PRIMARY KEY(ID),
+	UNIQUE(StoryAttribute)
+);
+
+CREATE TABLE CharacterAttribute
+(
+	ID int(11) AUTO_INCREMENT NOT NULL,
+	CharacterAttribute varchar(255) NOT NULL,
+	PRIMARY KEY(ID),
+	UNIQUE(CharacterAttribute)
+);
+
+INSERT INTO StoryAttribute(StoryAttribute) VALUES('Story');
+INSERT INTO StoryAttribute(StoryAttribute) VALUES('Genre');
+INSERT INTO StoryAttribute(StoryAttribute) VALUES('Origin Story');
+
+INSERT INTO CharacterAttribute(CharacterAttribute) VALUES('Number of Characters');
+INSERT INTO CharacterAttribute(CharacterAttribute) VALUES('Character Archetype');
+INSERT INTO CharacterAttribute(CharacterAttribute) VALUES('Origin Story');

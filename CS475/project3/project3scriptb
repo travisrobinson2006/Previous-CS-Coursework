@@ -1,0 +1,10 @@
+#!/bin/sh
+
+#number of threads:
+for NUMT in 1 2 4
+do
+	echo "NUMT: " $NUMT
+	g++ -DNUMT=$NUMT -DNUM=0 project3.cpp -o project3 -lm -fopenmp
+	./project3
+done
+

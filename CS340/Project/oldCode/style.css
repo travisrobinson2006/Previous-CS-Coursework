@@ -1,0 +1,16 @@
+body {
+	background-color: #ffffcc;
+}
+
+fieldset{
+	background-color: #ccccff;
+}
+
+.internalColor{
+	background-color: #ffffcc;
+}
+
+.form{
+	display: inline-block;
+	width:49%;
+}

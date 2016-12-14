@@ -1,0 +1,117 @@
+﻿Build started 6/3/2016 2:52:37 PM.
+     1>Project "C:\Users\Travis\Desktop\cs475\project7\ParticlesTemplate\Particles.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt particles.cpp
+         particles.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Travis\Desktop\cs475\project7\ParticlesTemplate\Release\Particles.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Travis\Desktop\cs475\project7\ParticlesTemplate\Release\Particles.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Travis\Desktop\cs475\project7\ParticlesTemplate\Release\Particles.lib" /MACHINE:X86 /SAFESEH Release\particles.obj
+     1>particles.obj : error LNK2001: unresolved external symbol __imp____glewBindBuffer
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glEnableClientState@4
+     1>particles.obj : error LNK2001: unresolved external symbol __imp____glewUnmapBuffer
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glClear@4
+     1>particles.obj : error LNK2001: unresolved external symbol _clGetDeviceInfo@20
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glClearColor@16
+     1>particles.obj : error LNK2001: unresolved external symbol _clCreateProgramWithSource@20
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__wglGetCurrentContext@0
+     1>particles.obj : error LNK2001: unresolved external symbol "public: void __thiscall GLUI::close(void)" (?close@GLUI@@QAEXXZ)
+     1>particles.obj : error LNK2001: unresolved external symbol "public: void __thiscall GLUI::sync_live(void)" (?sync_live@GLUI@@QAEXXZ)
+     1>particles.obj : error LNK2001: unresolved external symbol "public: void __thiscall GLUI::set_main_gfx_window(int)" (?set_main_gfx_window@GLUI@@QAEXH@Z)
+     1>particles.obj : error LNK2001: unresolved external symbol "public: class GLUI_Panel * __thiscall GLUI::add_panel(char *,int)" (?add_panel@GLUI@@QAEPAVGLUI_Panel@@PADH@Z)
+     1>particles.obj : error LNK2001: unresolved external symbol "public: class GLUI_StaticText * __thiscall GLUI::add_statictext(char *)" (?add_statictext@GLUI@@QAEPAVGLUI_StaticText@@PAD@Z)
+     1>particles.obj : error LNK2001: unresolved external symbol "public: class GLUI_Button * __thiscall GLUI::add_button_to_panel(class GLUI_Panel *,char *,int,void (__cdecl*)(int))" (?add_button_to_panel@GLUI@@QAEPAVGLUI_Button@@PAVGLUI_Panel@@PADHP6AXH@Z@Z)
+     1>particles.obj : error LNK2001: unresolved external symbol "public: class GLUI_Checkbox * __thiscall GLUI::add_checkbox(char *,int *,int,void (__cdecl*)(int))" (?add_checkbox@GLUI@@QAEPAVGLUI_Checkbox@@PADPAHHP6AXH@Z@Z)
+     1>particles.obj : error LNK2001: unresolved external symbol "public: class GLUI_Translation * __thiscall GLUI::add_translation_to_panel(class GLUI_Panel *,char *,int,float *,int,void (__cdecl*)(int))" (?add_translation_to_panel@GLUI@@QAEPAVGLUI_Translation@@PAVGLUI_Panel@@PADHPAMHP6AXH@Z@Z)
+     1>particles.obj : error LNK2001: unresolved external symbol "public: class GLUI_Rotation * __thiscall GLUI::add_rotation_to_panel(class GLUI_Panel *,char *,float *,int,void (__cdecl*)(int))" (?add_rotation_to_panel@GLUI@@QAEPAVGLUI_Rotation@@PAVGLUI_Panel@@PADPAMHP6AXH@Z@Z)
+     1>particles.obj : error LNK2001: unresolved external symbol "public: void __thiscall GLUI::add_separator(void)" (?add_separator@GLUI@@QAEXXZ)
+     1>particles.obj : error LNK2001: unresolved external symbol "public: void __thiscall GLUI::add_column_to_panel(class GLUI_Panel *,int)" (?add_column_to_panel@GLUI@@QAEXPAVGLUI_Panel@@H@Z)
+     1>particles.obj : error LNK2001: unresolved external symbol "public: class GLUI * __thiscall GLUI_Master_Object::create_glui(char *,long,int,int)" (?create_glui@GLUI_Master_Object@@QAEPAVGLUI@@PADJHH@Z)
+     1>particles.obj : error LNK2001: unresolved external symbol "public: void __thiscall GLUI_Master_Object::set_glutIdleFunc(void (__cdecl*)(void))" (?set_glutIdleFunc@GLUI_Master_Object@@QAEXP6AXXZ@Z)
+     1>particles.obj : error LNK2001: unresolved external symbol _clCreateKernel@12
+     1>particles.obj : error LNK2001: unresolved external symbol _glutInitWindowPosition@8
+     1>particles.obj : error LNK2001: unresolved external symbol _glutStrokeCharacter@8
+     1>particles.obj : error LNK2001: unresolved external symbol _clCreateCommandQueue@20
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glOrtho@48
+     1>particles.obj : error LNK2001: unresolved external symbol _glutCreateWindow@4
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glewInit
+     1>particles.obj : error LNK2001: unresolved external symbol _glutMotionFunc@4
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glPointSize@4
+     1>particles.obj : error LNK2001: unresolved external symbol _clGetProgramBuildInfo@24
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glEnd@0
+     1>particles.obj : error LNK2001: unresolved external symbol _clSetKernelArg@16
+     1>particles.obj : error LNK2001: unresolved external symbol _gluPerspective@32
+     1>particles.obj : error LNK2001: unresolved external symbol _clReleaseCommandQueue@4
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glFinish@0
+     1>particles.obj : error LNK2001: unresolved external symbol _gluLookAt@72
+     1>particles.obj : error LNK2001: unresolved external symbol _clGetPlatformIDs@12
+     1>particles.obj : error LNK2001: unresolved external symbol _glutVisibilityFunc@4
+     1>particles.obj : error LNK2001: unresolved external symbol _clFinish@4
+     1>particles.obj : error LNK2001: unresolved external symbol _clWaitForEvents@8
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glColor3fv@4
+     1>particles.obj : error LNK2001: unresolved external symbol __imp____glewMapBuffer
+     1>particles.obj : error LNK2001: unresolved external symbol _clReleaseKernel@4
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glDisable@4
+     1>particles.obj : error LNK2001: unresolved external symbol _glutSwapBuffers@0
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glBegin@4
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glShadeModel@4
+     1>particles.obj : error LNK2001: unresolved external symbol __imp____glewBufferData
+     1>particles.obj : error LNK2001: unresolved external symbol _glutReshapeFunc@4
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glColorPointer@16
+     1>particles.obj : error LNK2001: unresolved external symbol "public: void __thiscall GLUI_Rotation::set_spin(float)" (?set_spin@GLUI_Rotation@@QAEXM@Z)
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glDrawArrays@12
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__wglGetCurrentDC@0
+     1>particles.obj : error LNK2001: unresolved external symbol _glutGet@4
+     1>particles.obj : error LNK2001: unresolved external symbol _clGetDeviceIDs@24
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glPopMatrix@0
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glDrawBuffer@4
+     1>particles.obj : error LNK2001: unresolved external symbol _glutInitDisplayMode@4
+     1>particles.obj : error LNK2001: unresolved external symbol _clCreateFromGLBuffer@20
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glDisableClientState@4
+     1>particles.obj : error LNK2001: unresolved external symbol _clEnqueueAcquireGLObjects@24
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glPushMatrix@0
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glMultMatrixf@4
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glRotatef@16
+     1>particles.obj : error LNK2001: unresolved external symbol _clReleaseProgram@4
+     1>particles.obj : error LNK2001: unresolved external symbol _glutSetWindow@4
+     1>particles.obj : error LNK2001: unresolved external symbol _clBuildProgram@24
+     1>particles.obj : error LNK2001: unresolved external symbol _clEnqueueWriteBuffer@36
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glScalef@12
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glVertex3f@12
+     1>particles.obj : error LNK2001: unresolved external symbol __imp____glewGenBuffers
+     1>particles.obj : error LNK2001: unresolved external symbol _clCreateContext@24
+     1>particles.obj : error LNK2001: unresolved external symbol _glutMouseFunc@4
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glEndList@0
+     1>particles.obj : error LNK2001: unresolved external symbol _clCreateBuffer@24
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glNewList@8
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glMatrixMode@4
+     1>particles.obj : error LNK2001: unresolved external symbol _clEnqueueNDRangeKernel@36
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glViewport@16
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glGenLists@4
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glLineWidth@4
+     1>particles.obj : error LNK2001: unresolved external symbol "class GLUI_Master_Object GLUI_Master" (?GLUI_Master@@3VGLUI_Master_Object@@A)
+     1>particles.obj : error LNK2001: unresolved external symbol _glutInit@8
+     1>particles.obj : error LNK2001: unresolved external symbol _gluOrtho2D@32
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glVertexPointer@16
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glTranslatef@12
+     1>particles.obj : error LNK2001: unresolved external symbol _glutSolidSphere@16
+     1>particles.obj : error LNK2001: unresolved external symbol _glutKeyboardFunc@4
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glEnable@4
+     1>particles.obj : error LNK2001: unresolved external symbol _clReleaseMemObject@4
+     1>particles.obj : error LNK2001: unresolved external symbol _glutSetWindowTitle@4
+     1>particles.obj : error LNK2001: unresolved external symbol _glutDestroyWindow@4
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glFlush@0
+     1>particles.obj : error LNK2001: unresolved external symbol _glutMainLoop@0
+     1>particles.obj : error LNK2001: unresolved external symbol _glutInitWindowSize@8
+     1>particles.obj : error LNK2001: unresolved external symbol _glutPostRedisplay@0
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glColor3f@12
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glCallList@4
+     1>particles.obj : error LNK2001: unresolved external symbol _glutBitmapCharacter@8
+     1>particles.obj : error LNK2001: unresolved external symbol _glutDisplayFunc@4
+     1>particles.obj : error LNK2001: unresolved external symbol _clEnqueueReleaseGLObjects@24
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glRasterPos3f@12
+     1>particles.obj : error LNK2001: unresolved external symbol __imp__glLoadIdentity@0
+     1>C:\Users\Travis\Desktop\cs475\project7\ParticlesTemplate\Release\Particles.exe : fatal error LNK1120: 104 unresolved externals
+     1>Done Building Project "C:\Users\Travis\Desktop\cs475\project7\ParticlesTemplate\Particles.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:02.53

@@ -1,0 +1,226 @@
+INSERT INTO Genre(Type) VALUES ('Sci-Fi');
+INSERT INTO Genre(Type) VALUES ('Fantasy');
+INSERT INTO Genre(Type) VALUES ('Super Hero');
+INSERT INTO Genre(Type) VALUES ('Urban Fantasy');
+INSERT INTO Genre(Type) VALUES ('Dystopian');
+
+INSERT INTO Story(Title, GenreID) VALUES ('Star Wars',
+(SELECT ID FROM Genre WHERE Type='Sci-Fi')
+);
+
+INSERT INTO Story(Title, GenreID) VALUES ('Firefly',
+(SELECT ID FROM Genre WHERE Type='Sci-Fi')
+);
+
+INSERT INTO Story(Title, GenreID) VALUES ('Harry Potter',
+(SELECT ID FROM Genre WHERE Type='Fantasy')
+);
+
+INSERT INTO Story(Title, GenreID) VALUES ('Marvel Cinematic',
+(SELECT ID FROM Genre WHERE Type='Super Hero')
+);
+
+INSERT INTO Story(Title, GenreID) VALUES ('Hunger Games',
+(SELECT ID FROM Genre WHERE Type='Dystopian')
+);
+
+INSERT INTO Story(Title, GenreID) VALUES ('Dresden Files',
+(SELECT ID FROM Genre WHERE Type='Urban Fantasy')
+);
+
+INSERT INTO OriginStory (Type) VALUES ('Birthright');
+INSERT INTO OriginStory (Type) VALUES ('Accident');
+INSERT INTO OriginStory (Type) VALUES ('Tragic Beginning');
+INSERT INTO OriginStory (Type) VALUES ('Own Creation');
+
+-- INSERT INTO OriginStory (Type) VALUES ('Chosen One');
+
+INSERT INTO CharacterData(FirstName,LastName,StoryID,OriginStoryID) VALUES (
+	'Luke',
+	'Skywalker',
+	(SELECT ID FROM Story WHERE Title='Star Wars'),
+	(SELECT ID FROM OriginStory WHERE Type='Birthright')	
+);
+
+INSERT INTO CharacterData(FirstName,LastName,StoryID,OriginStoryID) VALUES (
+	'Anakin',
+	'Skywalker',
+	(SELECT ID FROM Story WHERE Title='Star Wars'),
+	(SELECT ID FROM OriginStory WHERE Type='Birthright')	
+);
+
+INSERT INTO CharacterData(FirstName,LastName,StoryID,OriginStoryID) VALUES (
+	'Leia',
+	'Organa',
+	(SELECT ID FROM Story WHERE Title='Star Wars'),
+	(SELECT ID FROM OriginStory WHERE Type='Birthright')	
+);
+
+INSERT INTO CharacterData(FirstName,LastName,StoryID,OriginStoryID) VALUES (
+	'Han',
+	'Solo',
+	(SELECT ID FROM Story WHERE Title='Star Wars'),
+	(SELECT ID FROM OriginStory WHERE Type='Accident')	
+);
+
+INSERT INTO CharacterData(FirstName,StoryID,OriginStoryID) VALUES (
+	'Chewbacca',
+	(SELECT ID FROM Story WHERE Title='Star Wars'),
+	(SELECT ID FROM OriginStory WHERE Type='Accident')	
+);
+
+INSERT INTO CharacterData(FirstName,StoryID,OriginStoryID) VALUES (
+	'C-3PO',
+	(SELECT ID FROM Story WHERE Title='Star Wars'),
+	(SELECT ID FROM OriginStory WHERE Type='Accident')	
+);
+
+INSERT INTO CharacterData(FirstName,StoryID,OriginStoryID) VALUES (
+	'R2-D2',
+	(SELECT ID FROM Story WHERE Title='Star Wars'),
+	(SELECT ID FROM OriginStory WHERE Type='Accident')	
+);
+
+INSERT INTO CharacterData(FirstName,LastName,StoryID,OriginStoryID) VALUES (
+	'R2-D2',
+	'Roboto',
+	(SELECT ID FROM Story WHERE Title='Star Wars'),
+	(SELECT ID FROM OriginStory WHERE Type='Accident')	
+);
+
+INSERT INTO CharacterData(FirstName,LastName,StoryID,OriginStoryID) VALUES (
+	'Boba',
+	'Fett',
+	(SELECT ID FROM Story WHERE Title='Star Wars'),
+	(SELECT ID FROM OriginStory WHERE Type='Tragic Beginning')	
+);
+
+INSERT INTO CharacterData(FirstName,LastName,StoryID,OriginStoryID) VALUES (
+	'Boba',
+	'Fatt',
+	(SELECT ID FROM Story WHERE Title='Star Wars'),
+	(SELECT ID FROM OriginStory WHERE Type='Tragic Beginning')	
+);
+
+INSERT INTO CharacterData(FirstName,LastName,StoryID,OriginStoryID) VALUES (
+	'Lando',
+	'Calrissian',
+	(SELECT ID FROM Story WHERE Title='Star Wars'),
+	(SELECT ID FROM OriginStory WHERE Type='Accident')	
+);
+
+INSERT INTO CharacterData(FirstName,LastName,StoryID,OriginStoryID) VALUES (
+	'Tony',
+	'Stark',
+	(SELECT ID FROM Story WHERE Title='Marvel Cinematic'),
+	(SELECT ID FROM OriginStory WHERE Type='Own Creation')	
+);
+
+-- CREATE TABLE CharacterArchetype
+-- (
+-- 	ID int(11) AUTO_INCREMENT NOT NULL,
+-- 	Type varchar(255) NOT NULL,
+-- 	PRIMARY KEY(ID)
+-- );
+
+INSERT INTO CharacterArchetype(Type) VALUES ('Token Female');
+INSERT INTO CharacterArchetype(Type) VALUES ('Token Minority');
+INSERT INTO CharacterArchetype(Type) VALUES ('Rich Vigilante');
+INSERT INTO CharacterArchetype(Type) VALUES ('Genius');
+INSERT INTO CharacterArchetype(Type) VALUES ('Paragon of Virtue');
+INSERT INTO CharacterArchetype(Type) VALUES ('Natural Leader');
+INSERT INTO CharacterArchetype(Type) VALUES ('Sidekick');
+INSERT INTO CharacterArchetype(Type) VALUES ('Anti-Hero');
+INSERT INTO CharacterArchetype(Type) VALUES ('Strong Quiet Type');
+INSERT INTO CharacterArchetype(Type) VALUES ('Super Power');
+
+-- CREATE TABLE CharacterIs
+-- (
+-- 	CharacterID int(11) NOT NULL,
+-- 	ArchetypeID int(11) NOT NULL,
+-- 	PRIMARY KEY(CharacterID,ArchetypeID),
+-- 	FOREIGN KEY(CharacterID) REFERENCES CharacterData(ID) ON UPDATE CASCADE,
+-- 	FOREIGN KEY(ArchetypeID) REFERENCES CharacterArchetype(ID) ON UPDATE CASCADE
+-- );
+
+INSERT INTO CharacterIs (CharacterID,ArchetypeID) VALUES(
+	(SELECT ID FROM CharacterData WHERE (FirstName='Luke' AND LastName='Skywalker')),
+	(SELECT ID FROM CharacterArchetype WHERE Type='Paragon of Virtue')
+);
+
+INSERT INTO CharacterIs (CharacterID,ArchetypeID) VALUES(
+	(SELECT ID FROM CharacterData WHERE (FirstName='Luke' AND LastName='Skywalker')),
+	(SELECT ID FROM CharacterArchetype WHERE Type='Super Power')
+);
+
+INSERT INTO CharacterIs (CharacterID,ArchetypeID) VALUES(
+	(SELECT ID FROM CharacterData WHERE (FirstName='Leia' AND LastName='Organa')),
+	(SELECT ID FROM CharacterArchetype WHERE Type='Natural Leader')
+);
+
+INSERT INTO CharacterIs (CharacterID,ArchetypeID) VALUES(
+	(SELECT ID FROM CharacterData WHERE (FirstName='Leia' AND LastName='Organa')),
+	(SELECT ID FROM CharacterArchetype WHERE Type='Token Female')
+);
+
+INSERT INTO CharacterIs (CharacterID,ArchetypeID) VALUES(
+	(SELECT ID FROM CharacterData WHERE (FirstName='Anakin' AND LastName='Skywalker')),
+	(SELECT ID FROM CharacterArchetype WHERE Type='Natural Leader')
+);
+
+INSERT INTO CharacterIs (CharacterID,ArchetypeID) VALUES(
+	(SELECT ID FROM CharacterData WHERE (FirstName='Anakin' AND LastName='Skywalker')),
+	(SELECT ID FROM CharacterArchetype WHERE Type='Super Power')
+);
+
+INSERT INTO CharacterIs (CharacterID,ArchetypeID) VALUES(
+	(SELECT ID FROM CharacterData WHERE (FirstName='Boba' AND LastName='Fett')),
+	(SELECT ID FROM CharacterArchetype WHERE Type='Anti-Hero')
+);
+
+INSERT INTO CharacterIs (CharacterID,ArchetypeID) VALUES(
+	(SELECT ID FROM CharacterData WHERE (FirstName='Boba' AND LastName='Fett')),
+	(SELECT ID FROM CharacterArchetype WHERE Type='Strong Quiet Type')
+);
+
+INSERT INTO CharacterIs (CharacterID,ArchetypeID) VALUES(
+	(SELECT ID FROM CharacterData WHERE (FirstName='Han' AND LastName='Solo')),
+	(SELECT ID FROM CharacterArchetype WHERE Type='Anti-Hero')
+);
+
+INSERT INTO CharacterIs (CharacterID,ArchetypeID) VALUES(
+	(SELECT ID FROM CharacterData WHERE (FirstName='Lando' AND LastName='Calrissian')),
+	(SELECT ID FROM CharacterArchetype WHERE Type='Anti-Hero')
+);
+
+
+INSERT INTO CharacterIs (CharacterID,ArchetypeID) VALUES(
+	(SELECT ID FROM CharacterData WHERE (FirstName='R2-D2' AND LastName IS NULL)),
+	(SELECT ID FROM CharacterArchetype WHERE Type='Sidekick')
+);
+
+INSERT INTO CharacterIs (CharacterID,ArchetypeID) VALUES(
+	(SELECT ID FROM CharacterData WHERE (FirstName='R2-D2' AND LastName='Roboto')),
+	(SELECT ID FROM CharacterArchetype WHERE Type='Sidekick')
+);
+
+INSERT INTO CharacterIs (CharacterID,ArchetypeID) VALUES(
+	(SELECT ID FROM CharacterData WHERE (FirstName='C-3PO')),
+	(SELECT ID FROM CharacterArchetype WHERE Type='Sidekick')
+);
+
+INSERT INTO CharacterIs (CharacterID,ArchetypeID) VALUES(
+	(SELECT ID FROM CharacterData WHERE (FirstName='Chewbacca')),
+	(SELECT ID FROM CharacterArchetype WHERE Type='Sidekick')
+);
+
+INSERT INTO CharacterIs (CharacterID,ArchetypeID) VALUES(
+	(SELECT ID FROM CharacterData WHERE (FirstName='Tony' AND LastName='Stark')),
+	(SELECT ID FROM CharacterArchetype WHERE Type='Genius')
+);
+
+INSERT INTO CharacterIs (CharacterID,ArchetypeID) VALUES(
+	(SELECT ID FROM CharacterData WHERE (FirstName='Tony' AND LastName='Stark')),
+	(SELECT ID FROM CharacterArchetype WHERE Type='Rich Vigilante')
+);
+

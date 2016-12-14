@@ -1,0 +1,168 @@
+#Travis Robinson
+#CS344 Operating Systems I
+#Program 1
+#Calculate Medians and Averages from an input file or from standard out,
+#based on user command line selection of rows or cols
+
+#trap for temp file deletions
+trap "rm -f $$temp*; exit 1" INT HUP TERM SIGHUP SIGKILL SIGTERM SIGSTOP
+
+#ensure that the first command line argument is allowable, know if we're finding cols or rows
+dash=`echo $1`
+key=`echo $1`
+
+dash=`echo $dash | head -c 1 | tail -c 1`
+key=`echo $key | head -c 2 | tail -c 1`
+
+#make sure we have appropriate number of arguments
+if [[ $# -gt 2 ]] || [[ $# -eq 0 ]]
+then
+	printf "%s \n" "./stats {-rows|-cols} [file]" 1>&2
+	exit 1 
+fi
+
+#make sure that file input is valid and readable
+if test -r $2;
+then
+	echo -n ""
+else
+	printf "%s \n" "./stats: cannot read $2" 1>&2
+	exit 1 
+fi
+
+#calculate values based on rows
+if [[ $key == "r" ]] && [[ $dash == "-" ]]
+then
+	count=0 #number of lines
+	printf "%-8s%-7s\n" "Average" "Median" #use printf for alignment
+	while read myLine
+	do
+		filename="$$temp${count}" #make number of temp files equal to number of lines
+		newFilename="$$temp${count}New" #new file used for replacing tabs with new lines
+		count=`expr $count + 1` #incremement counter to know # of lines
+		echo "$myLine" >$filename
+		tr "\t" "\n" < $filename > $newFilename #replace tabs with spaces for easier calculations
+		sort -n < $newFilename > $filename
+	#find average	
+		average=0
+		while read numberLine
+		do
+			average=`expr $numberLine + $average`
+		done <$filename
+		numberLines=($(wc -l $filename))
+		offset=`expr $numberLines / 2` #used for rounding to nearest value
+		average=`expr $average + $offset` 
+		average=`expr $average / $numberLines`
+	#find median
+		median=0
+		if (( $numberLines % 2 == 1 )) #odd number of values
+		then
+			medianLine=`expr $numberLines / 2`
+			medianLine=`expr $medianLine + 1`
+			median=`head -$medianLine $filename | tail -1`
+		else #else there's an even number of values
+			medianLine1=`expr $numberLines / 2` #use to center values as potential medians
+			medianLine2=`expr $medianLine1 + 1`
+			median1=`head -$medianLine1 $filename | tail -1`
+			median2=`head -$medianLine2 $filename | tail -1`
+			if [[ $median1 > $median2 ]] #find which of 2 potential median values is larger
+			then
+				median=$median1
+			else
+				median=$median2
+			fi
+		fi
+	#print results
+		printf "%-8s%-7s\n" $average $median #use printf here for alignment reasons 
+	done < "${2:-/dev/stdin}" 
+#find average and median for rows	
+elif [[ $key == "c" ]] && [[ $dash == "-" ]]
+then	
+	count=0 #number of lines
+	while read myLine
+	do
+		filename="$$temp${count}" #make number of temp files equal to number of lines
+		newFilename="$$temp${count}New" #new file used for replacing tabs with new lines
+		count=`expr $count + 1` #incremement counter to know # of lines
+		echo "$myLine" >$filename
+		tr "\t" "\n" < $filename > $newFilename #replace tabs with spaces for easier calculations
+		
+#find the average for columns
+	done < "${2:-/dev/stdin}" 
+	echo "Averages:"
+	
+	numberEntries=0 #number of columns
+	numberRows=0 #number of rows
+	
+	if test -r $$temp0New #this is done because empty files will register an error when accessing this file
+	then	
+		while read entriesLine #calculate number of columns
+		do
+			numberEntries=`expr $numberEntries + 1`
+		done < $$temp0New
+	else
+		echo #print a new line
+		echo "Medians: " #kept here for consistency sake. Error appears when attempting to print medians only
+		exit 0 #if no data exists, exit with a success code
+	fi
+	
+	for ((entryNumber=1; entryNumber <= $numberEntries; entryNumber++)) do #calculate average
+		average=0
+		for ((fileNumber=0; fileNumber < $count ; fileNumber++)) do
+			averageAdd=`head -$entryNumber $$temp${fileNumber}New | tail -1` #find each value to add to avg
+			average=`expr $average + $averageAdd`
+			echo $averageAdd >>$$temp${entryNumber}Median #add value to median file for later use in finding median
+			sort -n < $$temp${entryNumber}Median > $$temp${entryNumber}MedianSorted 
+		done
+
+		#calculate number of rows in each column
+		numberRows=0			
+			while read rows
+			do
+				numberRows=`expr $numberRows + 1`
+			done < $$temp${entryNumber}MedianSorted
+
+		offset=`expr $numberRows / 2` #offset used for rounding to nearest int, offset is 1/2 denominator
+		average=`expr $average + $offset` #offset is added to numberator
+		average=`expr $average / $numberRows `
+		echo -n $average
+		echo -n -e "\t"
+	done
+	echo #print a new line 
+
+#find median for columns
+	echo "Medians: "
+	for ((entryNumber=1; entryNumber <= $numberEntries; entryNumber++)) do
+		median=0
+		if (( $numberEntries % 2 == 1 )) #odd number of rows
+		then
+			medianLine=`expr $numberRows / 2` #find the center row, make it median value 
+			medianLine=`expr $medianLine + 1`
+			median=`head -$medianLine $$temp${entryNumber}MedianSorted | tail -1`
+		else #else there's an even number of rows
+			medianLine1=`expr $numberRows / 2` #find middle two potential rows
+			medianLine2=`expr $medianLine1 + 1`	
+			median1=`head -$medianLine1 $$temp${entryNumber}MedianSorted | tail -1`
+			median2=`head -$medianLine2 $$temp${entryNumber}MedianSorted | tail -1`
+			if [[ $median1 > $median2 ]] #find larger of potential medians
+			then
+				median=$median1
+			else
+				median=$median2
+			fi			
+		fi
+		echo -n $median
+		echo -n -e "\t"
+	done
+	echo
+#if not rows or cols command, print usage
+else
+	printf "%s \n" "./stats {-rows|-cols} [file]" 1>&2
+	exit 1 
+		
+fi
+	
+rm -f $$temp*
+
+
+
